@@ -1,0 +1,49 @@
+generated: '2026-09-07'
+method: searched
+source: https://docs.toapis.com/docs/cn/api-reference/webhooks/task-webhooks.md
+type: webhook-catalog
+notes: >-
+  ToAPIs documents a signed webhook surface for async image/video generation tasks
+  but publishes no AsyncAPI document, so this captures the webhook catalog only.
+  Only final-state events are sent (no intermediate progress events). Delivery is
+  at-least-once: the event id stays stable across retries and receivers must
+  deduplicate on it before executing side effects.
+delivery:
+  guarantee: at-least-once
+  dedupe_key: id (event ID, stable across retries)
+  retry_schedule: immediate, then ~10s, 30s, 2m, 10m, 1h, 6h, 24h
+  success_criteria: 2xx response only (3xx not followed; 4xx and 5xx both retried)
+  timeout: 10s per delivery; at most 4KB of response body read for diagnostics
+  transport: HTTPS only; userinfo/fragment/private, loopback, link-local and
+    reserved addresses rejected; DNS/IP re-validated per delivery (SSRF/DNS-rebinding
+    protection)
+configuration: >-
+  Configured per token in the console: HTTPS default callback URL + a 32-byte
+  signing secret (shown once). A request-level callback_url may override only the
+  path and query of the token default (scheme/host/port must match). Passing
+  callback_url without webhook configuration returns error code
+  webhook_not_configured.
+signature:
+  headers:
+    - User-Agent: ToAPIs-Webhook/1.0
+    - X-ToAPIs-Webhook-Id
+    - X-ToAPIs-Webhook-Timestamp
+    - X-ToAPIs-Webhook-Signature: 'v1=<current>[,v1=<previous>]'
+  algorithm: HMAC-SHA256 (lowercase hex) over 'event_id + "." + timestamp + "." + raw_request_body'
+  timestamp_tolerance: reject first deliveries older/newer than 5 minutes
+  key_rotation: for 24h after rotation both current and previous key signatures are sent
+events:
+  - name: generation.completed
+    description: Async image or video generation task finished successfully.
+    payload_fields: [id, type, api_version, created_at, data.task_id, data.client_business_id, data.task_type, data.model, data.status, data.progress, data.result, data.error, data.submitted_at, data.finished_at]
+  - name: generation.failed
+    description: >-
+      Task failed after all internal retries ended and final billing/refund
+      completed; transient failures never trigger it.
+  - name: endpoint.test
+    description: Console-triggered test event to verify the receiving endpoint.
+constraints:
+  - task_type is only image or video
+  - result matches the task-status query response and never includes channel IDs, upstream task IDs, upstream secrets or PrivateData
+  - result URLs expire (download promptly; docs elsewhere state 24 hours)
+  - Seedance real-person verification callback_url, payment webhooks and OAuth callbacks are separate surfaces, not task webhooks

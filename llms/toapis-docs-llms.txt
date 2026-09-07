@@ -1,0 +1,270 @@
+# ToAPIs Documentation
+
+## API 手册
+
+### 概览
+
+- [快速开始](https://docs.toapis.com/docs/cn/quickstart.md): 使用 ToAPIs 调用文本、图像和视频模型
+
+### 快速上手
+
+- [快速开始](https://docs.toapis.com/docs/cn/quickstart.md): 使用 ToAPIs 调用文本、图像和视频模型
+- [Claude Code 配置指南](https://docs.toapis.com/docs/cn/integrations/claude-code.md): 在 Claude Code 中使用 ToAPIs 作为 API 后端
+- [Codex 配置指南](https://docs.toapis.com/docs/cn/integrations/codex.md): 通过 CC Switch 在 Codex CLI 中使用 ToAPIs
+- [在 OpenClaw 中使用 ToAPIs](https://docs.toapis.com/docs/cn/integrations/openclaw.md)
+- [Cherry Studio 配置指南](https://docs.toapis.com/docs/cn/integrations/cherry-studio.md): 在 Cherry Studio 中使用 ToAPIs 作为 API 后端
+- [集成指南](https://docs.toapis.com/docs/cn/integrations/chatbox.md)
+
+### 文本对话系列
+
+- [支持的文字模型](https://docs.toapis.com/docs/cn/api-reference/chat/models.md): 文字对话模型一览，支持 Chat Completions 与 Responses 两种 API 格式
+- [列出模型](https://docs.toapis.com/docs/cn/api-reference/chat/list-models.md): 查询当前 API Key 可用的模型列表，兼容 OpenAI Models API
+
+#### GPT-5 系列
+
+- [GPT-5.4 对话](https://docs.toapis.com/docs/cn/api-reference/chat/gpt-5.4/chat.md): GPT-5 第四代，更强的通用推理与多模态能力
+- [GPT-5.5 对话](https://docs.toapis.com/docs/cn/api-reference/chat/gpt-5.5/chat.md): GPT-5.5，更强的通用推理、代码与多模态能力
+- [GPT-5.6 系列对话](https://docs.toapis.com/docs/cn/api-reference/chat/gpt-5.6/chat.md): 通过 OpenAI 兼容 Chat Completions API 使用 GPT-5.6 Sol、Terra 和 Luna
+
+#### OpenAI 格式
+
+- [Chat Completions](https://docs.toapis.com/docs/cn/api-reference/chat/chat.md): 兼容 OpenAI 格式的文字对话接口，支持全部文字模型
+
+#### Anthropic 格式
+
+- [Anthropic Messages API](https://docs.toapis.com/docs/cn/api-reference/chat/messages.md): 使用 Anthropic Messages API 原生格式与 Claude 系列模型对话
+
+#### Responses 格式
+
+- [Responses API](https://docs.toapis.com/docs/cn/api-reference/chat/responses.md): OpenAI Responses API 格式，支持函数调用、内置工具与服务端多轮上下文管理
+
+### 图像系列
+
+#### Gemini-3-Pro-Image-preview（Nano banana Pro）
+
+- [Gemini-3-Pro 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gemini-3-pro-image/generation.md): 使用 Google Gemini 3 Pro 模型生成图像，更强大的图像生成能力
+
+#### Gemini-3.1-Flash-Image-preview（Nano banana2）
+
+- [Gemini-3.1-Flash 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gemini-3.1-flash/generation.md): 使用 Google Gemini 3.1 Flash 模型生成图像，支持极端宽高比与 Google 搜索增强
+
+#### Gemini-2.5-Flash-Image-preview（Nano Banana official）
+
+- [Gemini-2.5-Flash 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gemini-2.5-flash/generation.md): 使用 Google Gemini 2.5 Flash 模型生成图像，快速高效
+
+#### Gemini-3-Pro-Image Official / Nano Banana Pro
+
+- [Gemini-3-Pro Official 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gemini-3-pro-image-official/generation.md): 使用 Google Gemini 3 Pro 官方直连模型生成图像，支持原生参数控制
+
+#### gemini-3.1-flash-image-official
+
+- [Gemini-3.1-Flash Official 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gemini-3.1-flash-official/generation.md): 使用 Google Gemini 3.1 Flash 官方直连模型生成图像，支持思考模式与极端宽高比
+
+#### Gemini-2.5-Flash-Image Official
+
+- [Gemini-2.5-Flash Official 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gemini-2.5-flash-official/generation.md): 使用 Google Gemini 2.5 Flash 官方直连模型生成图像，快速高效
+
+#### GPT-4o-image
+
+- [GPT-4o 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gpt-4o/generation.md): 使用 GPT-4o 模型生成图像，支持文本到图像和图像编辑
+
+#### GPT-Image-2
+
+- [GPT-Image-2 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gpt-image-2/generation.md): 使用 gpt-image-2 模型生成图像，支持文生图和 reference_images 图生图
+- [GPT-Image-2 官方渠道 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gpt-image-2/official.md): 使用 OpenAI 官方 gpt-image-2-official 模型生成图像，支持文生图 / 图生图 / 局部重绘（mask）三合一，1K / 2K / 4K 分辨率档位
+- [GPT-Image-2 官方渠道 图像编辑](https://docs.toapis.com/docs/cn/api-reference/images/gpt-image-2/edits.md): 基于参考图进行图像编辑 / 图生图 / 局部重绘（mask inpainting），使用 gpt-image-2 模型
+
+#### GPT-Image-2-VIP
+
+- [GPT-Image-2-VIP 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/gpt-image-2-vip/generation.md): 使用 gpt-image-2-vip 模型生成图像，参数与 gpt-image-2 一致，但支持全部常用宽高比
+
+#### Qwen Image 3.0
+
+- [Qwen Image 3.0 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/qwen-image-3.0/generation.md): 使用 qwen-image-3.0 或 qwen-image-3.0-pro 进行文生图和多参考图生成
+
+#### Seedream-4.0
+
+- [Seedream-4.0 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/seedream-4.0/generation.md): 使用 Seedream 4.0 模型生成高质量图像
+
+#### Seedream-4.5
+
+- [Seedream-4.5 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/seedream-4.5/generation.md): 使用 Seedream 4.5 模型生成高质量图像，最新版本
+
+#### Seedream-5.0
+
+- [Seedream-5.0 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/seedream-5.0/generation.md): 使用 Seedream 5.0 lite 模型生成高质量图像，支持 2K/3K 分辨率与联网搜索
+
+#### Seedream-5.0-Pro
+
+- [Seedream-5.0-Pro 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/seedream-5.0-pro/generation.md): 使用 Seedream 5.0 Pro 模型生成高质量图像，支持 1K/2K 分辨率
+
+#### Flux Kontext
+
+- [Flux Kontext 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/flux-kontext/generation.md): 使用 Flux Kontext 模型进行图片编辑和生成，支持文生图和图片编辑
+
+#### Flux 2.0
+
+- [Flux 2.0 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/flux-2/generation.md): 使用 Flux 2.0 模型生成高质量图像，支持文生图和图生图
+
+#### Grok Image
+
+- [Grok 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/grok-image/generation.md): 使用 Grok 模型生成图像，支持文本到图像和图生图
+
+#### Grok Imagine 1.0
+
+- [Grok Imagine 1.0 图像生成](https://docs.toapis.com/docs/cn/api-reference/images/grok-imagine-1.0/generation.md): 使用 grok-imagine-1.0 进行异步图像生成
+- [Grok Imagine 1.0 图像编辑](https://docs.toapis.com/docs/cn/api-reference/images/grok-imagine-1.0/edits.md): 使用 grok-imagine-1.0-edit 基于参考图进行异步图像编辑
+
+#### Vidu 图片
+
+- [Vidu 图片生成](https://docs.toapis.com/docs/cn/api-reference/images/vidu-image/generation.md): 使用 Vidu 图片系列模型生成图片或基于参考图生成图片，返回统一 generation.task。
+
+### 视频系列
+
+#### Sora2
+
+- [Sora2 VVIP 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/sora2/generation.md): 使用 sora-2-vvip 模型生成高质量视频
+- [Sora2 创建角色](https://docs.toapis.com/docs/cn/api-reference/videos/sora2/create-persona.md): 从视频中提取角色，用于后续视频生成
+- [Sora2 查询角色状态](https://docs.toapis.com/docs/cn/api-reference/videos/sora2/get-personas.md): 查询角色创建任务的状态和结果
+- [Sora2 视频混音](https://docs.toapis.com/docs/cn/api-reference/videos/sora2/remix.md): 编辑和修改已生成的视频
+
+#### Sora 2 Official (Azure)
+
+- [Azure Sora 2 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/sora-2-official/generation.md): 使用 Azure Sora 2 模型生成高质量视频
+- [Azure Sora 2 Remix](https://docs.toapis.com/docs/cn/api-reference/videos/sora-2-official/remix.md): 使用 Azure Sora 2 模型对现有视频进行重混
+
+#### Veo3
+
+- [Veo3 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/veo3/generation.md): 使用 Google Veo3 模型生成高质量视频，支持异步任务管理
+
+#### Gemini Omni Flash
+
+- [Gemini Omni Flash 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/gemini-omni-flash/generation.md): 使用非官方 Gemini Omni Flash 渠道生成视频，支持文本和最多 3 张参考图
+
+#### Gemini Omni Flash Preview Official
+
+- [Gemini Omni Flash 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/gemini-omni-flash-preview-official/generation.md): 使用 Gemini Omni Flash 生成或编辑视频，支持文本、最多 10 张参考图或最多 3 个输入视频
+
+#### Veo3 Official (including Veo3.1 Lite)
+
+- [Veo3 Official 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/veo3-official/generation.md): 使用 Google Veo3 官方直连模型生成高质量视频，支持音频生成、首尾帧控制等高级功能
+
+#### doubao-seedance-1-0-pro
+
+- [Doubao SeeDance 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/doubao-seedance/generation.md): 使用字节跳动豆包 Doubao SeeDance 模型生成视频
+
+#### doubao-seedance-1-5-pro
+
+- [Doubao SeeDance 1.5 Pro 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/doubao-seedance-1-5/generation.md): 使用字节跳动豆包 Doubao SeeDance 1.5 Pro 模型生成视频
+
+#### Seedance 价格快查表
+
+- [火山方舟视频生成模型价格快查表](https://docs.toapis.com/docs/cn/api-reference/videos/seedance/pricing.md): Seedance 系列视频生成模型价格和最低 token 限制快查表
+
+#### seedance-2
+
+- [seedance-2 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/seedance-2/generation.md): 使用 seedance-2、seedance-2-fast 与 seedance-2-mini 模型生成视频
+- [Seedance 2 虚拟人像素材](https://docs.toapis.com/docs/cn/api-reference/videos/seedance-2/private-avatar.md): 将虚拟人像素材提交到素材库，并在 Seedance 2 视频生成中直接使用
+- [Seedance 2 真人人像素材](https://docs.toapis.com/docs/cn/api-reference/videos/seedance-2/real-avatar.md): 先完成真人认证，再提交真人人像素材，并在 Seedance 2 视频生成中使用
+
+#### seedance-2-5
+
+- [seedance-2.5 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/seedance-2-5/generation.md): 使用 seedance-2-5 模型生成视频
+
+#### HappyHorse
+
+- [HappyHorse 1.1 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/happyhorse/generation.md): 使用 HappyHorse 1.1 生成、参考图生成或编辑视频
+
+#### MiniMax-Hailuo-02
+
+- [MiniMax-Hailuo-02 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/minimax-hailuo/generation.md): 使用 MiniMax Hailuo 02 模型生成视频，支持文生视频、图生视频和首尾帧生成
+
+#### Wan 3.0
+
+- [Wan 3.0 全能视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/wan3.0/generation.md): 使用 Wan 3.0 All-in-One 模型生成视频，支持文生视频、首尾帧控制和图片、视频、音频等多模态参考
+
+#### Wan2.6
+
+- [Wan2.6 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/wan2.6/generation.md): 使用阿里云万相 Wan2.6 模型生成高质量视频 — 支持文生视频、图生视频和参考视频
+- [Wan2.6 Flash 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/wan2.6-flash/generation.md): 使用阿里云万相 Wan2.6 Flash 极速版生成视频 — 支持图生视频和参考视频，速度更快
+
+#### Kling v2.6
+
+- [Kling v2.6 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/kling-2-6/generation.md): 使用官方 Kling v2.6 生成视频，普通参考图与首尾帧控制采用显式区分语义
+
+#### Kling v3
+
+- [Kling v3 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/kling-v3/generation.md): 使用官方 Kling v3 生成视频，普通参考图与首尾帧控制采用显式区分语义
+
+#### kling-3.0-turbo
+
+- [kling-3.0-turbo 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/kling-3.0-turbo/generation.md): 通过 ToAPIs 标准异步视频接口接入官方 kling-3.0-turbo 视频生成模型
+
+#### Kling v3 Omni
+
+- [Kling v3 Omni 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/kling-v3-omni/generation.md): 使用 Kling v3 Omni 生成视频，支持图片引用、有声视频和参考视频输入
+
+#### Kling Video O1
+
+- [Kling Video O1 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/kling-video-o1/generation.md): 使用可灵 Kling Video O1 推理增强模型生成最高质量视频
+
+#### MiniMax-Hailuo-2.3
+
+- [MiniMax-Hailuo-2.3 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/minimax-hailuo-2.3/generation.md): 使用 MiniMax Hailuo 2.3 系列模型生成视频，支持文生视频和图生视频，可选 Fast 快速模式
+
+#### MiniMax-H3
+
+- [MiniMax Hailuo H3 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/minimax-h3/generation.md): 使用 MiniMax Hailuo H3 生成 2K 或 768p 视频，支持文生视频、首尾帧图生视频和多模态参考生视频
+
+#### Vidu Q3
+
+- [Vidu Q3 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/viduq3/generation.md): 使用 Vidu Q3 系列模型生成视频，支持文生视频、图生视频、首尾帧、参考生成和 Subjects 生成
+
+#### Vidu Q3
+
+- [Vidu Q3 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/vidu-ali/generation.md): 使用 Vidu Q3 视频模型生成异步视频任务。
+
+#### Grok Video
+
+- [Grok Video 1.5 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/grok-video-1.5/generation.md): 使用 grok-video-1.5 从单张必填首图生成视频
+- [Grok 视频生成](https://docs.toapis.com/docs/cn/api-reference/videos/grok-video/generation.md): 使用 Grok Video 模型生成高质量视频
+- [Grok 视频混音](https://docs.toapis.com/docs/cn/api-reference/videos/grok-video/remix.md): 编辑和修改已生成的 Grok 视频
+- [Grok 视频延伸](https://docs.toapis.com/docs/cn/api-reference/videos/grok-video/extend.md): 延伸已生成的 Grok 视频
+
+### 任务管理
+
+- [异步任务 Webhook](https://docs.toapis.com/docs/cn/api-reference/webhooks/task-webhooks.md): 接收并验证 ToAPIs 异步生成任务的最终成功和最终失败事件
+- [异步任务速率限制](https://docs.toapis.com/docs/cn/api-reference/rate-limits/async-tasks.md): ToAPIs 异步图片和视频任务的用户级提交与查询限流
+
+#### 获取图片任务状态
+
+- [获取图片任务状态](https://docs.toapis.com/docs/cn/api-reference/tasks/image-status.md): 查询图片生成任务的状态和结果
+
+#### 获取视频任务状态
+
+- [获取视频任务状态](https://docs.toapis.com/docs/cn/api-reference/tasks/video-status.md): 查询视频生成任务的状态和结果
+
+### 文件上传
+
+- [上传图片](https://docs.toapis.com/docs/cn/api-reference/uploads/images.md): 上传图片获取 URL，用于图像/视频生成接口
+- [上传视频](https://docs.toapis.com/docs/cn/api-reference/uploads/videos.md): 上传视频获取 URL，用于视频生成和参考视频输入
+
+### 账户
+
+- [查询令牌余额](https://docs.toapis.com/docs/cn/api-reference/account/token-balance.md): 查询当前 API Key 的剩余额度和已使用额度
+- [查询用户余额](https://docs.toapis.com/docs/cn/api-reference/account/user-balance.md): 查询当前用户账户的剩余额度和已使用额度
+- [创建 API 令牌](https://docs.toapis.com/docs/cn/api-reference/account/create-token.md): 通过 API 创建新的 API 令牌
+
+### 常见问题
+
+- [常见问题](https://docs.toapis.com/docs/cn/faqs.md)
+
+> The links below point to documentation indexes. Follow each `/_llms/` index recursively until you reach documentation pages.
+
+## Indexes
+
+- [Traditional Chinese (78 pages)](https://docs.toapis.com/_llms/zh-hant.md): Documentation for Traditional Chinese.
+- [English (80 pages)](https://docs.toapis.com/_llms/en.md): Documentation for English.
+- [Japanese (78 pages)](https://docs.toapis.com/_llms/ja.md): Documentation for Japanese.
+- [Korean (78 pages)](https://docs.toapis.com/_llms/ko.md): Documentation for Korean.
+- [Russian (79 pages)](https://docs.toapis.com/_llms/ru.md): Documentation for Russian.

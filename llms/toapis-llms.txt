@@ -1,0 +1,57 @@
+# ToAPIs - LLM Discovery Guide
+
+This file helps AI assistants and search systems understand the public, crawlable surfaces of ToAPIs.
+
+## Canonical Site
+- https://toapis.com
+
+## Primary Public Routes
+- `/` : Homepage, aggregation API gateway overview, migration guidance, public capability context.
+- `/markdown` : Public markdown index for machine discovery across homepage, market, pricing, and legal pages.
+- `/market` : Public model market and capability browsing.
+- `/market/markdown` : Machine-friendly market companion with filtering, item-list, and navigation guidance.
+- `/pricing` : Public pricing and quota explanation.
+- `/pricing/markdown` : Machine-friendly pricing companion with billing units and routing decision guidance.
+- `/about/markdown` : Machine-friendly summary of platform positioning and capabilities.
+- `/privacy/markdown` : Machine-friendly privacy policy summary.
+- `/terms/markdown` : Machine-friendly terms of service summary.
+- `/model-guide` : Public index of model model-guide pages.
+- `/model-guide/markdown` : Public markdown-oriented index page for machine discovery of model-guide content.
+
+## Model Guide Model Pages
+- Canonical detail pages: `/model-guide/{model}`
+  - Purpose: primary human+machine reference for each model.
+  - Indexing intent: index/follow.
+- Companion markdown pages: `/model-guide/{model}/markdown`
+  - Purpose: machine-friendly structured companion text for the same model.
+  - Indexing intent: noindex/follow; canonical points to `/model-guide/{model}`.
+- Raw endpoint pages (if present) are machine-accessible but not listed in sitemap.
+
+## Sitemap / Robots
+- Sitemap: https://toapis.com/sitemap.xml
+- Robots: https://toapis.com/robots.txt
+
+## Citation Guidance
+- Prefer citing canonical detail pages (`/model-guide/{model}`) when both detail and markdown are available.
+- Prefer citing canonical public pages (`/market`, `/pricing`, `/about`, `/privacy`, `/terms`) when both HTML and markdown companions are available.
+- When quoting technical fields, include model name and vendor if present on page.
+
+## Coverage Note
+- Public discovery is intentionally focused on homepage, market, pricing, legal, and model-guide surfaces.
+- Private dashboard routes require authentication and are out of scope for public crawling.
+
+## Markdown Discovery Order
+- Start with `/markdown` for public-site discovery.
+- Use `/model-guide/markdown` for model-guide discovery.
+- Prefer `/{surface}/markdown` for machine reading and `/{surface}` as canonical citation target.
+
+## RQA Coverage
+- Homepage includes compact capability RQA snippets for common tasks:
+  - Text-to-Image
+  - Image-to-Image
+  - Text-to-Video
+  - Image-to-Video
+  - Video-to-Text
+  - Audio-to-Text / Text-to-Speech
+- Prefer homepage snippets for platform-level capability selection questions.
+- Prefer `/model-guide/{model}` for model-specific parameters, error handling, and implementation details.

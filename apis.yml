@@ -4,6 +4,7 @@ description: >-
   DeepSeek, Qwen, Sora/Veo/Kling, etc.) behind a single integration, with model routing, provider failover, unified
   usage tracking, and consolidated billing.
 url: https://raw.githubusercontent.com/api-evangelist/toapis/refs/heads/main/apis.yml
+image: https://docs.toapis.com/logo/light.svg
 created: '2026-09-07'
 modified: '2026-09-07'
 specificationVersion: '0.21'
@@ -25,6 +26,7 @@ apis:
       Anthropic Messages and OpenAI Responses formats). Key-authenticated via Bearer token.
     humanURL: https://docs.toapis.com/docs/cn
     baseURL: https://toapis.com/v1
+    image: https://docs.toapis.com/logo/light.svg
     tags:
       - AI API
       - LLM/AI gateway
@@ -41,6 +43,8 @@ apis:
         url: https://docs.toapis.com/docs/cn
       - type: Documentation
         url: https://docs.toapis.com/docs/cn/quickstart.md
+      - type: GettingStarted
+        url: https://docs.toapis.com/docs/cn/quickstart
       - type: LLMsTxt
         url: https://toapis.com/llms.txt
       - type: LLMsTxt
@@ -48,8 +52,56 @@ apis:
 maintainers:
   - FN: JINGSHU INTELLIGENT LIMITED
     url: https://toapis.com
-generated:
+x-generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 95
   at: '2026-09-07T03:52:43.062Z'
+common:
+- type: Website
+  url: https://toapis.com
+- type: DomainSecurity
+  url: security/toapis-domain-security.yml
+- type: MCPServer
+  url: mcp/toapis-mcp.yml
+- type: AgentCard
+  url: a2a/toapis-a2a.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/toapis-llms.txt
+- type: WellKnown
+  url: well-known/toapis-well-known.yml
+- type: Webhooks
+  url: asyncapi/toapis-webhooks.yml
+- type: RateLimits
+  url: rate-limits/toapis-rate-limits.yml
+- type: Plans
+  url: plans/toapis-plans-pricing.yml
+- type: ErrorCatalog
+  url: errors/toapis-problem-types.yml
+- type: Authentication
+  url: authentication/toapis-authentication.yml
+- type: Conventions
+  url: conventions/toapis-conventions.yml
+- type: Conformance
+  url: conformance/toapis-conformance.yml
+- type: Pricing
+  url: https://toapis.com/pricing
+- type: TermsOfService
+  url: https://toapis.com/terms
+- type: PrivacyPolicy
+  url: https://toapis.com/privacy
+- type: Login
+  url: https://toapis.com/login
+- type: Portal
+  url: https://toapis.com/dashboard
+- type: GitHubOrganization
+  url: https://github.com/toapis
+- type: Support
+  url: https://discord.gg/hvnszCrJ73
+x-enrichment:
+  date: '2026-09-07'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v3

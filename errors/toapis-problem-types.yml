@@ -1,0 +1,39 @@
+generated: '2026-09-07'
+method: searched
+source: >-
+  https://docs.toapis.com/docs/cn/api-reference/rate-limits/async-tasks.md,
+  https://docs.toapis.com/docs/cn/api-reference/webhooks/task-webhooks.md,
+  https://docs.toapis.com/.well-known/agent-skills/apis/skill.md
+format: openai-style
+envelope: '{"error": {"code": "<string>", "message": "<string>"}}'
+notes: >-
+  ToAPIs uses the OpenAI-style error envelope (error.code + error.message), not RFC
+  9457 problem+json. No consolidated error reference page is published; these codes
+  are collected from the rate-limit, webhook and agent-skill documentation. HTTP
+  status semantics below are stated in the provider's published Agent Skill.
+problem_types:
+  - code: rate_limit_exceeded
+    status: 429
+    title: Async task request rate exceeded
+    remediation: Honor Retry-After; back off exponentially with jitter; prefer webhooks over polling.
+  - code: rate_limit_unavailable
+    status: 503
+    title: Async submission rate-limit service temporarily unavailable
+    remediation: Retry later per Retry-After; status queries degrade to pass-through.
+  - code: webhook_not_configured
+    title: callback_url passed but token webhook is not configured
+    remediation: Enable Task Webhooks on the token in the console and set a default HTTPS callback URL + signing secret.
+  - code: generation_failed
+    title: Generation failed after retries (webhook generation.failed event)
+    remediation: Final state — internal retries are exhausted and billing/refund settled; resubmit if desired.
+http_statuses:
+  - status: 401
+    meaning: Missing or malformed Authorization header / invalid API key
+  - status: 402
+    meaning: Insufficient token balance (check GET /v1/balance)
+  - status: 422
+    meaning: Content policy violation or invalid request content
+  - status: 429
+    meaning: Rate limit exceeded (per-user buckets; Retry-After returned)
+  - status: 503
+    meaning: Rate-limit service unavailable (async submission)

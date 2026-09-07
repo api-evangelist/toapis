@@ -1,0 +1,25 @@
+generated: '2026-09-07'
+method: searched
+source: https://docs.toapis.com/docs/cn/quickstart.md
+docs: https://docs.toapis.com/docs/cn/quickstart
+notes: >-
+  No OpenAPI is published, so this profile is read from the documentation. Every
+  endpoint uses the same scheme; there is no OAuth, no scopes, and no mTLS. Keys are
+  created in the console (https://toapis.com/console/token) or via the
+  POST /v1/account/tokens API; a key's secret is returned exactly once at creation.
+schemes:
+  - type: http
+    scheme: bearer
+    name: API key (Bearer token)
+    header: 'Authorization: Bearer <key>'
+    key_prefix: sk-
+    applies_to: all endpoints on https://toapis.com/v1 (and https://toapis.cn for mainland China)
+key_management:
+  console: https://toapis.com/console/token
+  api: POST /v1/account/tokens (create tokens with name, expiry, quota, model restrictions)
+  controls:
+    - per-token expiry (Unix timestamp or -1 for never)
+    - per-token total quota / credits (200 credits = 1 USD)
+    - per-token daily and monthly credit limits
+    - per-token model restrictions
+  rate_limit_scope: per user ID — all tokens of one user share rate-limit buckets

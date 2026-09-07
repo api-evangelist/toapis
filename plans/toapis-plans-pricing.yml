@@ -1,0 +1,27 @@
+generated: '2026-09-07'
+method: searched
+source: https://toapis.com/pricing/raw
+plan_count: 0
+pricing_model: usage-based
+notes: >-
+  ToAPIs publishes no subscription tiers — access is pay-as-you-go per model, with
+  prices listed per model on the model market (https://toapis.com/market and
+  https://toapis.com/models). The pricing page's machine-readable companion
+  (/pricing/raw, served as text/markdown) documents billing units rather than plans.
+  Account rate-limit groups (default/vip/svip) exist but are not published as
+  purchasable plans. Token credit conversion is fixed: 1 USD = 200 credits = 500,000
+  internal quota units (documented on the create-token and balance API pages).
+  Per-token spend controls are available: total, daily and monthly credit limits and
+  expiry set at token creation.
+billing_units:
+  - unit: per token
+    applies_to: text and multimodal understanding models
+  - unit: per request
+    applies_to: fixed-request tasks such as image generation
+  - unit: per second
+    applies_to: video and duration-sensitive tasks
+currency: USD
+credit_conversion: 1 USD = 200 credits = 500000 internal quota units
+model_price_reference:
+  - https://toapis.com/market
+  - https://toapis.com/pricing

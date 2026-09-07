@@ -1,0 +1,54 @@
+generated: '2026-09-07'
+method: searched
+source: https://docs.toapis.com/docs/cn/api-reference/rate-limits/async-tasks.md
+limit_count: 6
+notes: >-
+  Published limits cover async image/video task submission and status queries only;
+  two independent token buckets that do not consume synchronous model-request quota.
+  Limits are counted per user ID, not per token — all tokens owned by one user share
+  the bucket. Business failures count; requests rejected with 429 do not. A batch
+  status query counts as one request (max 100 task IDs). Synchronous chat/completion
+  rate limits are not published. Rate-limit groups (default/vip/svip) are account
+  tiers assigned by the provider.
+limits:
+  - scope: per-user async task submission (group default)
+    limit: 300 RPM
+    sustained: 5 RPS
+    burst: 50 per 10s
+  - scope: per-user async task submission (group vip)
+    limit: 1000 RPM
+    sustained: 16.7 RPS
+    burst: 167 per 10s
+  - scope: per-user async task submission (group svip)
+    limit: 2000 RPM
+    sustained: 33.3 RPS
+    burst: 334 per 10s
+  - scope: per-user async task status query (group default)
+    limit: 3000 RPM
+    sustained: 50 RPS
+    burst: 500 per 10s
+  - scope: per-user async task status query (group vip)
+    limit: 10000 RPM
+    sustained: 166.7 RPS
+    burst: 1667 per 10s
+  - scope: per-user async task status query (group svip)
+    limit: 30000 RPM
+    sustained: 500 RPS
+    burst: 5000 per 10s
+headers:
+  - Retry-After
+  - X-RateLimit-Limit
+  - X-RateLimit-Remaining
+  - X-RateLimit-Reset
+  - 'X-RateLimit-Category: async_submit|async_query'
+exhaustion:
+  status: 429
+  error_code: rate_limit_exceeded
+  degraded:
+    status: 503
+    error_code: rate_limit_unavailable
+    note: returned when the submission rate-limit service is unavailable; queries degrade to pass-through
+guidance: >-
+  Provider recommends webhooks as the primary completion signal with polling as
+  fallback: poll at 5-10s minimum with jitter, honor Retry-After on 429/503, use
+  exponential backoff when the header is absent.

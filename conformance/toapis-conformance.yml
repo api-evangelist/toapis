@@ -1,0 +1,46 @@
+generated: '2026-09-07'
+method: searched
+source: https://docs.toapis.com/llms.txt
+notes: >-
+  ToAPIs publishes no OpenAPI, so conformance is read from documented compatibility
+  claims. As an AI-model gateway its market's de-facto interface standards are the
+  OpenAI and Anthropic API shapes, which the provider explicitly declares. No formal
+  standards-body conformance (OAuth2/OIDC, RFC 9457, JSON:API, etc.) is claimed or
+  observed, and no compliance certifications (SOC 2 / ISO 27001) are published.
+conformance:
+  - id: openai-chat-completions
+    conforms: true
+    evidence: >-
+      https://docs.toapis.com/docs/cn/api-reference/chat/chat.md — "兼容 OpenAI
+      Chat Completions API 格式" (OpenAI-compatible Chat Completions at POST
+      /v1/chat/completions, including SSE streaming and vision content blocks).
+  - id: openai-responses-api
+    conforms: true
+    evidence: >-
+      https://docs.toapis.com/docs/cn/api-reference/chat/responses.md — OpenAI
+      Responses API format with function calling, built-in tools and server-side
+      multi-turn context.
+  - id: anthropic-messages-api
+    conforms: true
+    evidence: >-
+      https://docs.toapis.com/docs/cn/api-reference/chat/messages.md — native
+      Anthropic Messages API format for Claude-series models.
+  - id: openai-models-api
+    conforms: true
+    evidence: >-
+      https://docs.toapis.com/docs/cn/api-reference/chat/list-models.md — GET
+      /v1/models "兼容 OpenAI Models API".
+  - id: rfc9457
+    conforms: false
+    evidence: >-
+      Errors use the OpenAI-style {"error":{"code","message"}} envelope, not
+      application/problem+json (see errors/toapis-problem-types.yml).
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      Bearer API keys only; /.well-known/oauth-authorization-server and
+      /openid-configuration return 404 on every host (see
+      well-known/toapis-well-known.yml).
+  - id: idempotency
+    conforms: false
+    evidence: No Idempotency-Key mechanism is documented on any write endpoint.

@@ -1,0 +1,61 @@
+generated: '2026-09-07'
+method: searched
+source: >-
+  https://docs.toapis.com/llms.txt (docs corpus),
+  https://docs.toapis.com/docs/cn/api-reference/chat/chat.md,
+  https://docs.toapis.com/docs/cn/api-reference/webhooks/task-webhooks.md,
+  https://docs.toapis.com/docs/cn/api-reference/rate-limits/async-tasks.md,
+  https://docs.toapis.com/.well-known/agent-skills/apis/skill.md
+notes: >-
+  ToAPIs is an OpenAI-compatible AI gateway; its cross-cutting semantics mirror the
+  OpenAI API surface it emulates, with an async task layer for image/video work. No
+  OpenAPI is published, so everything here is read from documentation.
+auth:
+  style: Bearer API key (sk- prefix) in the Authorization header on every endpoint
+  see: ../authentication/toapis-authentication.yml
+base_urls:
+  production: https://toapis.com/v1
+  mainland_china: https://toapis.cn (documented drop-in alias for all endpoints)
+compatibility:
+  - OpenAI Chat Completions API (POST /v1/chat/completions)
+  - OpenAI Responses API (POST /v1/responses format, for function calling and server-side context)
+  - Anthropic Messages API (native format for Claude-series models)
+  - OpenAI Models API (GET /v1/models, scoped to the calling key)
+idempotency:
+  coverage: none
+  note: >-
+    No Idempotency-Key or request-replay-protection mechanism is documented on any
+    write endpoint. The only deduplication in the surface is receiver-side: webhook
+    consumers must deduplicate on the stable event id, and async task submissions
+    may carry a client_business_id correlation field — neither prevents a duplicate
+    submission from being billed.
+reversibility:
+  grade: none
+  note: >-
+    Write surfaces are async generation-task submissions and API-token creation. No
+    cancel, void, undo or delete operation is documented for a submitted generation
+    task, and no reversal window is stated anywhere in the docs; failed tasks are
+    refunded by the provider's own billing (generation.failed is only sent after
+    final billing or refund completes), but no caller-initiated reversal exists.
+pagination:
+  style: none documented
+  note: List endpoints published (GET /v1/models) return unpaginated collections; batch task-status queries accept up to 100 task IDs per request.
+async_pattern:
+  style: submit-then-poll-or-webhook
+  submit: POST /v1/images/generations and /v1/videos/generations return a task id immediately
+  poll: GET /v1/images/generations/{task_id} and /v1/videos/generations/{task_id}; provider guidance is 5-10s intervals with jitter
+  webhook: signed final-state events (see ../asyncapi/toapis-webhooks.yml)
+  result_expiry: generated image/video URLs expire after 24 hours
+streaming:
+  style: 'Server-Sent Events on chat completions via stream=true; async image/video tasks never stream'
+error_envelope:
+  shape: '{"error": {"code", "message"}} (OpenAI-style)'
+  see: ../errors/toapis-problem-types.yml
+rate_limit_signaling:
+  headers: [Retry-After, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-RateLimit-Category]
+  see: ../rate-limits/toapis-rate-limits.yml
+request_id_tracing: not documented
+versioning:
+  style: URL prefix /v1; webhook payloads carry api_version. No versioning or deprecation policy page is published.
+uploads:
+  style: multipart upload endpoints (POST /v1/uploads/images, /v1/uploads/videos) return URLs for use in generation requests; base64 inline data is deprecated in favor of upload-then-URL

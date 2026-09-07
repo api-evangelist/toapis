@@ -1,0 +1,68 @@
+generated: '2026-09-07'
+method: probed
+source: live probes of /.well-known/* on every host the record knows
+hosts:
+  - host: toapis.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /security.txt
+        status: 404
+      - path: /robots.txt
+        status: 200
+      - path: /llms.txt
+        status: 200
+        file: ../llms/toapis-llms.txt
+  - host: docs.toapis.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: ../a2a/toapis-agent-card.json
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/agent-skills/apis/skill.md
+        status: 200
+        file: ../skills/toapis-apis.md
+      - path: /security.txt
+        status: 404
+      - path: /robots.txt
+        status: 200
+      - path: /llms.txt
+        status: 200
+        file: ../llms/toapis-docs-llms.txt
+  - host: toapis.cn
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+notes: >-
+  Real hits: docs.toapis.com serves an A2A agent card and an Agent Skill from
+  /.well-known/ (both Mintlify-platform generated, saved verbatim in a2a/ and
+  skills/), plus llms.txt on both toapis.com and docs.toapis.com. No security.txt,
+  OAuth/OIDC discovery, api-catalog, or ai-plugin.json on any host. toapis.cn is the
+  mainland-China base URL alias documented by the provider.
