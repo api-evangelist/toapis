@@ -1,0 +1,55 @@
+name: ToAPIs
+description: >-
+  An OpenAI-compatible AI API gateway/aggregator fronting 50+ text, image, and video models (GPT, Claude, Gemini,
+  DeepSeek, Qwen, Sora/Veo/Kling, etc.) behind a single integration, with model routing, provider failover, unified
+  usage tracking, and consolidated billing.
+url: https://raw.githubusercontent.com/api-evangelist/toapis/refs/heads/main/apis.yml
+created: '2026-09-07'
+modified: '2026-09-07'
+specificationVersion: '0.21'
+tags:
+  - AI API
+  - LLM/AI gateway
+  - model aggregation
+  - OpenAI-compatible
+  - model routing
+  - provider failover
+  - text generation
+  - image generation
+  - video generation
+  - developer tools
+apis:
+  - name: ToAPIs API
+    description: >-
+      OpenAI-compatible REST API covering chat/completions, image generation, video generation, and model listing (plus
+      Anthropic Messages and OpenAI Responses formats). Key-authenticated via Bearer token.
+    humanURL: https://docs.toapis.com/docs/cn
+    baseURL: https://toapis.com/v1
+    tags:
+      - AI API
+      - LLM/AI gateway
+      - model aggregation
+      - OpenAI-compatible
+      - model routing
+      - provider failover
+      - text generation
+      - image generation
+      - video generation
+      - developer tools
+    properties:
+      - type: Documentation
+        url: https://docs.toapis.com/docs/cn
+      - type: Documentation
+        url: https://docs.toapis.com/docs/cn/quickstart.md
+      - type: LLMsTxt
+        url: https://toapis.com/llms.txt
+      - type: LLMsTxt
+        url: https://docs.toapis.com/llms.txt
+maintainers:
+  - FN: JINGSHU INTELLIGENT LIMITED
+    url: https://toapis.com
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 95
+  at: '2026-09-07T03:52:43.062Z'
