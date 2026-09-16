@@ -12,6 +12,17 @@ tags:
   - AI API
   - LLM/AI gateway
   - model aggregation
+  - OpenAI-Compatible
+  - Model Routing
+  - provider failover
+  - Text Generation
+  - Image-Generation
+  - Video Generation
+  - Developer Tools
+tags_raw:
+  - AI API
+  - LLM/AI gateway
+  - model aggregation
   - OpenAI-compatible
   - model routing
   - provider failover
@@ -28,6 +39,17 @@ apis:
     baseURL: https://toapis.com/v1
     image: https://docs.toapis.com/logo/light.svg
     tags:
+      - AI API
+      - LLM/AI gateway
+      - model aggregation
+      - OpenAI-Compatible
+      - Model Routing
+      - provider failover
+      - Text Generation
+      - Image-Generation
+      - Video Generation
+      - Developer Tools
+    tags_raw:
       - AI API
       - LLM/AI gateway
       - model aggregation
