@@ -16,9 +16,10 @@ tags:
   - Model Routing
   - provider failover
   - Text Generation
-  - Image-Generation
+  - Image Generation
   - Video Generation
   - Developer Tools
+  - A2A
 tags_raw:
   - AI API
   - LLM/AI gateway
@@ -30,6 +31,8 @@ tags_raw:
   - image generation
   - video generation
   - developer tools
+  - Image-Generation
+  - A2A
 apis:
   - name: ToAPIs API
     description: >-
@@ -46,7 +49,7 @@ apis:
       - Model Routing
       - provider failover
       - Text Generation
-      - Image-Generation
+      - Image Generation
       - Video Generation
       - Developer Tools
     tags_raw:
@@ -60,6 +63,7 @@ apis:
       - image generation
       - video generation
       - developer tools
+      - Image-Generation
     properties:
       - type: Documentation
         url: https://docs.toapis.com/docs/cn
@@ -127,3 +131,10 @@ x-enrichment:
   status: enriched
   artifacts_added: 16
   pass: local-v3
+x-a2a:
+  verified: true
+  probed: '2026-09-26'
+  url: "https://docs.toapis.com/.well-known/agent-card.json"
+  grade: "conformant"
+  protocol_version: "0.3"
+  control: 404
