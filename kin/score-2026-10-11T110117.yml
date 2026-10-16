@@ -1,30 +1,28 @@
-# Kin Score artifact — toapis — 2026-09-07T200636
+# Kin Score artifact — toapis — 2026-10-11T110117
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: toapis
-  schema_version: 0.20.0
-  scored_at: '2026-09-07'
-  run_ts: 2026-09-07T200636
-  composite: 43.7
+  schema_version: 0.23.0
+  scored_at: '2026-10-11'
+  run_ts: 2026-10-11T110117
+  composite: 44.3
   band: developing
   facets:
-    discoverability: 70.4
-    contract_quality: 41.6
-    governance: 18.2
+    discoverability: 70.0
+    contract_quality: 39.0
+    contract_governance: 18.2
     operational_transparency: 42.1
     developer_ergonomics: 54.8
-    commercial_clarity: 38.2
-    contract_governance: 18.2
     access_clarity: 38.2
   agent_readiness:
-    score: 32.2
+    score: 30.9
     band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: false
       reversibility_documented: false
-      mcp_server: documented
+      mcp_server: platform
       auth_clarity: bearer
       idempotency: false
       error_semantics: documented
@@ -40,6 +38,12 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 24.5
+    matched_via: fallback
   provenance:
     mcp: first-party
     skills: first-party
